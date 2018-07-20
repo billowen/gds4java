@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Boundary extends Shape {
     @Override
-    synchronized public void setXy(List<Point> xy) throws IllegalArgumentException {
+    synchronized public void setXy(List<Point> xy) {
         if (xy.size() < 4) {
             throw new IllegalArgumentException("Boundary elements should have a minimum of 4 coordinates.");
         }

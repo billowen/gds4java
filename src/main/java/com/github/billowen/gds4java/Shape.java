@@ -12,7 +12,7 @@ public abstract class Shape extends Element {
         return layer;
     }
 
-    synchronized public void setLayer(short layer) throws IllegalArgumentException {
+    synchronized public void setLayer(short layer) {
         if (layer < 0 || layer > 255)
             throw new IllegalArgumentException("The value of the layer must be in the range of 0 t0 255.");
         this.layer = layer;
@@ -22,7 +22,7 @@ public abstract class Shape extends Element {
         return datatype;
     }
 
-    synchronized public void setDatatype(short datatype) throws IllegalArgumentException {
+    synchronized public void setDatatype(short datatype) {
         if (datatype < 0 || datatype > 255)
             throw new IllegalArgumentException("The value of the datatype must be in the range of 0 to 255.");
         this.datatype = datatype;

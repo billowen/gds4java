@@ -20,7 +20,7 @@ public class Path extends Shape {
         return width;
     }
 
-    synchronized public void setWidth(int width) throws IllegalArgumentException {
+    synchronized public void setWidth(int width) {
         if (width % 2 != 0) {
             throw new IllegalArgumentException("The width of path elements should be even number.");
         }
@@ -35,7 +35,7 @@ public class Path extends Shape {
      * And currently, only orthogonal path is supported.
      */
     @Override
-    synchronized public void setXy(List<Point> xy) throws IllegalArgumentException {
+    synchronized public void setXy(List<Point> xy) {
         if (xy.size() < 2) {
             throw new IllegalArgumentException("Path elements should have a minimum of 2 coordinates.");
         }
