@@ -2,6 +2,7 @@ package com.github.billowen.gds4java;
 
 import com.github.billowen.gds4java.exception.UninitializedException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Boundary extends Shape {
@@ -17,6 +18,21 @@ public class Boundary extends Shape {
             throw new IllegalArgumentException("The first and last coordinates of a boundary must coincide.");
         }
         this.xy = xy;
+    }
+
+    static public Boundary fromRect(Point p, Size size) {
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(p.getX(), p.getY()));
+        points.add(new Point(p.getX() + size.getWidth(), p.getY()));
+        points.add(new Point(p.getX() + size.getWidth(), p.getY() + size.getHeight()));
+        points.add(new Point(p.getX(), p.getY() + size.getHeight()));
+        points.add(new Point(p.getX(), p.getY()));
+        Boundary b = new Boundary();
+        b.setXy(points);
+
+        return b;
+
+
     }
 
     @Override
